@@ -1,0 +1,83 @@
+<%- include('../../components/header') %> 
+<%- include('../../components/navclient') %> 
+
+<br><br><br><br>
+<h3 class="text-center" style="font-weight: bold; color: rgb(46, 46, 46);font-family: arial;">Boking Room</h3>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+
+            <div class="col-md-6">
+
+
+
+            <% data.forEach(rows => { %>
+                <div class="room-detail">
+                    
+                    <img src=" <%= rows.img %>  " alt="imgrooms" width="300">
+                    <br>
+                    <span>No Room : <%= rows.name_room %> </span><br>
+                    <span>Kelas : <%= rows.category %> </span>
+                    <p>Detail Service : <%= rows.description %>  </p>
+
+                </div>
+                
+                
+            </div>
+            
+            <div class="col-md-6">
+                <br>
+                <form action="/transactionpost" method="POST" class="form-transaction">
+                    
+                    <div class="grup"> 
+                        <label for="" class="det"> <%= name %>  </label>
+                        <input type="hidden" name="iduser"  placeholder="" value="<%= iduser %> ">
+                    </div>
+
+                    <input type="hidden" name="idroom" value="<%= rows.idrooms %> ">
+
+                    <div class="form-group">
+                        <label for="">Date Check in</label><br>
+                        <input type="date" name="date_booking" class="form-control" > 
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Check Out</label><br>
+                        <input type="date" name="date_booking" class="form-control" > 
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Price</label><br>
+                        <input type="text" name="price" value="<%=rows.price%>" class="form-control"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Day</label><br>
+                        <input type="text" name="day" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden"  name="total" class="form-control"> 
+                    </div>
+                    
+                    <span id="total"></span>
+                    
+                    <button class="btn btn-success">Pay at Hotel</button>
+                    <button onclick="" class="btn btn-warning">Cek total</button>
+                    </form>
+                <% }) %>
+                
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+<br><br>
+
+
+<%- include('../../components/footer') %> 

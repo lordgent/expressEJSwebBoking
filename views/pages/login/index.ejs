@@ -1,0 +1,68 @@
+<%- include('../../components/header') %> 
+<%- include('../../components/navlogin') %> 
+
+
+
+  <div class="container-fluid mt-4">
+      
+    
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <img src="images/bg4.png" alt="bg" height="300" class="logologin">
+
+        </div>
+        <div class="col-md-6">
+
+            <form class="form" action="/login/loginpost" method="POST">
+                <% if (reg.length > 0) { %>
+
+                    <div class="alert alert-success" role="alert">
+                        <%= reg %> 
+                      </div>
+
+                <% } %>
+
+                <% if (message.length > 0) { %>
+
+                    <div class="alert alert-danger" role="alert">
+                        <%= message %> 
+                      </div>
+
+                <% } %>
+                <% if (msg.length > 0) { %>
+
+                    <div class="alert alert-danger" role="alert">
+                        <%= msg%> 
+                      </div>
+
+                <% } %>
+                <p class="navbar-brand">
+                   Login Inn<span class="logo">A</span>pps
+                </p>
+
+                  <div class="form-group">
+                    <label >Username</label>
+                    <input type="text" class="form-control" name="username">
+                  </div>
+
+                  <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" class="form-control" name="password">
+                  </div>
+                  
+                  <button type="submit" class="btn btn-danger login">Masuk</button><br>
+                  <a href="/login/register" class="btn btn-success login">Daftar</a>
+              </form>
+              
+
+        </div>
+
+    </div>
+      
+    </div>
+
+<br><br><br>
+
+<%- include('../../components/footer') %> 

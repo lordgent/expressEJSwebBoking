@@ -1,0 +1,95 @@
+<%- include('../../components/header') %> 
+<%- include('../../components/navclient') %> 
+
+
+
+
+<div class="container-fluid">
+
+        <div class="jumbotron">
+            
+            <% if (mesg.length > 0) { %>
+
+                <div class="alert alert-success" role="alert">
+                    <%= mesg %> 
+                  </div>
+            
+            <% } %>
+
+              
+            <% if (trn.length > 0) { %>
+
+                <div class="alert alert-primary" role="alert">
+                    <%= trn %> 
+                  </div>
+            
+            <% } %>
+
+        </div>
+
+    <div class="row">
+
+
+
+        <div class="col-md-3">
+            <div class="card test">
+                <i class="bi bi-person-lines-fill ic"></i>
+                <a href="" class="kat"> Profil</a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card test">
+                <i class="bi bi-cash-stack ic"></i>
+                <a href="" class="kat">Transaksi</a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card test">
+                <i class="bi bi-card-list ic"></i>
+
+                <a href="" class="kat"> 
+                    Kategori</a>
+            </div> 
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid">
+        <h2 class="text-center mt-4">Rooms</h2>
+
+    <div class="row">
+            <% data.forEach(row => { %>
+             
+                <div class="col-md-4">
+
+                    <div class="card" style="padding: 10px; justify-content: center; box-shadow: 2px 2px 2px 2px rgb(223, 223, 223);">
+
+                        <img src="<%= row.img %> " alt="imageroom" width="300" class="icons" >
+                        <div class="card des"> 
+                        <p class="" style="font-weight: bold;color: rgb(63, 63, 63);"> Room : <%= row.name_room %>  </p>
+                        <p style="color: rgb(68, 68, 68);font-family: arial;font-weight: 600;font-size: 13px;"> description : <%= row.description %>  </p>
+                        <span> Rp.<%= row.price %>  </span>
+                    </div>
+                        <a href="/transaction/idrooms=<%= row.idrooms %> " class="btn btn-success">Pesan</a>
+                    </div>
+
+                </div>
+                
+                <% }) %>
+
+    </div>
+
+
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+<%- include('../../components/footer') %> 
